@@ -59,7 +59,7 @@ window.onload = function () {
   map.zoomToExtent(dataMaxExtent);
 
   loadPointLayer(map);
-  loadPointLayer2(map);
+  loadPointLayer2(map2);
 
 
   
@@ -110,7 +110,7 @@ function loadPointLayer(map)
 
 
 
-function loadPointLayer2(map)
+function loadPointLayer2(map2)
 {
   var style = new OpenLayers.StyleMap({
     'default': new OpenLayers.Style ({
