@@ -59,6 +59,8 @@ window.onload = function () {
   map.zoomToExtent(dataMaxExtent);
 
   loadPolygonLayer(map);
+  loadPointLayer(map);
+
 
   
   if (!map.getCenter()) {
