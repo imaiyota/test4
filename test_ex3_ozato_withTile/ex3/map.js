@@ -102,3 +102,32 @@ function loadPolygonLayer(map)
   layer.addFeatures(loaded_data);
   return;
 }
+
+function loadPointLayer(map)
+{
+  var style = new OpenLayers.StyleMap({
+    'default': new OpenLayers.Style ({
+      graphicName:"circle",
+      strokeColor: "#ff0000",
+      fillColor: "#ff00ff",
+      strokeOpacity: 1.0,
+      fillOpacity: 0.5,
+      pointRadius: 15 // pixel
+    })
+  });
+
+  var layer = new OpenLayers.Layer.Vector(
+    'Layer of Point',
+    { styleMap: style }
+  );
+  map.addLayer(layer);
+
+  var geojson_format = new OpenLayers.Format.GeoJSON({
+    externalProjection: new OpenLayers.Projection('EPSG:4326'),
+    internalProjection: new OpenLayers.Projection('EPSG:900913')
+  });
+
+  loaded_data = geojson_format.read(input_geojson_point);
+  layer.addFeatures(loaded_data);
+  return;
+}
