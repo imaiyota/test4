@@ -338,4 +338,4 @@ var input_geojson_point =
 { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 134.377119736700081, 33.613624591399983 ] } },
 { "type": "Feature", "geometry": { "type": "Point", "coordinates": [ 134.377307156100102, 33.6135719529994 ] } }
 ]
-}
+};
