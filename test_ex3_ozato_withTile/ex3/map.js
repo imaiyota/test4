@@ -44,7 +44,7 @@ window.onload = function () {
   };
 
   var layer = new OpenLayers.Layer.TMS( // Tile Map Service
-    "Tile Map Overlay",  // レイヤ名
+    "2019年11月16日空中写真",  // レイヤ名 120mの高度で撮影_phantom4
     "mapimg/", // 画像のあるURL
     { // TMSオプション
       mapMinZoom:16,
@@ -119,7 +119,7 @@ function loadPointLayer(map)
   });
 
   var layer = new OpenLayers.Layer.Vector(
-    'Layer of Point',
+    '2019年台風19号打ち込み位置',
     { styleMap: style }
   );
   map.addLayer(layer);
