@@ -58,7 +58,6 @@ window.onload = function () {
   map.addLayers([layer]);
   map.zoomToExtent(dataMaxExtent);
 
-  loadPolygonLayer(map);
   loadPointLayer(map);
 
 
@@ -78,32 +77,6 @@ window.onload = function () {
 
 
 
-function loadPolygonLayer(map)
-{
-  var style = new OpenLayers.StyleMap({
-    'default': new OpenLayers.Style ({
-      strokeColor: "#909090",
-      fillColor: "#f0f0f0",
-      strokeOpacity: 0.5,
-      fillOpacity: 0.9,
-    })
-  });
-
-  var layer = new OpenLayers.Layer.Vector(
-    'Layer of Polygon',
-    { styleMap: style }
-  );
-  map.addLayer(layer);
-
-  var geojson_format = new OpenLayers.Format.GeoJSON({
-    externalProjection: new OpenLayers.Projection('EPSG:4326'),
-    internalProjection: new OpenLayers.Projection('EPSG:900913')
-  });
-
-  loaded_data = geojson_format.read(input_geojson_polygon);
-  layer.addFeatures(loaded_data);
-  return;
-}
 
 function loadPointLayer(map)
 {
@@ -111,10 +84,10 @@ function loadPointLayer(map)
     'default': new OpenLayers.Style ({
       graphicName:"circle",
       strokeColor: "#00ff0000",
-      fillColor: "#d3381c",
+      fillColor: "ff3381c",
       strokeOpacity: 1.0,
       fillOpacity: 0.5,
-      pointRadius: 5 // pixel
+      pointRadius: 8 // pixel
     })
   });
 
