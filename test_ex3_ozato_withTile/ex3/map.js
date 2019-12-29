@@ -110,11 +110,11 @@ function loadPointLayer(map)
   var style = new OpenLayers.StyleMap({
     'default': new OpenLayers.Style ({
       graphicName:"circle",
-      strokeColor: "#ff0000",
-      fillColor: "#ff00ff",
+      strokeColor: "#00ff0000",
+      fillColor: "#d3381c",
       strokeOpacity: 1.0,
       fillOpacity: 0.5,
-      pointRadius: 15 // pixel
+      pointRadius: 5 // pixel
     })
   });
 
