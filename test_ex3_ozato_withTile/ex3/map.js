@@ -133,3 +133,4 @@ function loadPointLayer(map)
   layer.addFeatures(loaded_data);
   return;
 }
+
