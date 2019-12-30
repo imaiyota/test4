@@ -105,6 +105,38 @@ function loadPointLayer(map)
   loaded_data = geojson_format.read(input_geojson_point);
   layer.addFeatures(loaded_data);
   return;
-}
+};
 
+
+//ベースマップの追加
+var attribution = new ol.Attribution({
+    html: 'Tiles © <a href="https://maps.gsi.go.jp/development/ichiran.html#std">国土地理院</a>'
+  });
+
+var baseLayer = new ol.layer.Group({
+    'title': 'Base maps',
+    layers: [
+
+  new ol.layer.Tile({
+      'title': 'OSM',
+      'type': 'base',
+      source: new ol.source.OSM()
+  }),
+  new ol.layer.Tile({
+      'title': 'Stamen Terrain',
+      'type': 'base',
+      source: new ol.source.Stamen({
+          layer: 'terrain'
+      })
+  }),
+  new ol.layer.Tile({
+    'title': '地理院地図',
+    'type': 'base',
+              source: new ol.source.XYZ({
+                attributions: [attribution],
+                url: 'http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png'
+              })
+            })
+  ]
+});
 
