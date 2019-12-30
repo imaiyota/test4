@@ -59,7 +59,6 @@ window.onload = function () {
   map.zoomToExtent(dataMaxExtent);
 
   loadPointLayer(map);
-  loadPointLayer2(map2);
 
 
   
@@ -108,34 +107,4 @@ function loadPointLayer(map)
   return;
 }
 
-
-
-function loadPointLayer2(map2)
-{
-  var style = new OpenLayers.StyleMap({
-    'default': new OpenLayers.Style ({
-      graphicName:"circle",
-      strokeColor: "${color}",
-      fillColor: "${color}",
-      strokeOpacity: 1.0,
-      fillOpacity: 0.5,
-      pointRadius: 8 // pixel
-    })
-  });
-
-  var layer = new OpenLayers.Layer.Vector(
-    '2018年台風22号打ち込み位置',
-    { styleMap: style }
-  );
-  map.addLayer(layer);
-
-  var geojson_format = new OpenLayers.Format.GeoJSON({
-    externalProjection: new OpenLayers.Projection('EPSG:4326'),
-    internalProjection: new OpenLayers.Projection('EPSG:900913')
-  });
-
-  loaded_data = geojson_format.read(input_geojson_point2);
-  layer.addFeatures(loaded_data);
-  return;
-}
 
